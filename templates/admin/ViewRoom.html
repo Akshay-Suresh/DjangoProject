@@ -1,0 +1,28 @@
+{% extends 'admin/admin.html' %}
+{% block content %}
+
+<div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Room Details</h4>
+                    </p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Total Room</th><th>Available Room</th><th>Occupied Room</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in rob %}
+                            <tr>
+                                <td>{{i.total}}</td><td>{{i.avail}}</td><td>{{i.occupied}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+                  </div>
+                </div>
+              </div>
+
+
+{% endblock %}

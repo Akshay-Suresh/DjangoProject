@@ -1,0 +1,40 @@
+{% extends 'admin/admin.html' %}
+{% block content %}
+
+
+<div class="col-lg-20 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+<!--      <u><h2  style="text-align:center" class="card-title">Student Attendance</h2></u>-->
+          <table border="2px" cellpadding="10px" width="1100px">
+            <theader>
+              <tr>
+                <th class="mb-2 text-dark font-weight-bold">SI.No.</th>
+                <th class="mb-2 text-dark font-weight-bold">Date</th>
+                <th class="mb-2 text-dark font-weight-bold">Time</th>
+              </tr>
+            </theader><br><br>
+            <tbody>
+<!--              {% for i in attendance %}-->
+<!--              <tr>-->
+<!--                <td class="mb-2 text-dark font-weight-normal">{{i.st}}</td>-->
+<!--                <td class="mb-2 text-dark font-weight-normal">{{i.date}}</td>-->
+<!--                <td class="mb-2 text-dark font-weight-normal">{{i.time}}</td>-->
+<!--                <td class="mb-2 text-dark font-weight-normal">{{i.attend}}</td>-->
+<!--              </tr>-->
+<!--              {% endfor %}-->
+                {% for attendance in attendances %}
+                        <tr>
+                            <td class="mb-2 text-dark font-weight-bold">{{forloop.counter }}</td>
+                            <td class="mb-2 text-dark font-weight-bold">{{ attendance}}</td>
+                            <td><a href="{% url 'day_attendance' attendance %}">View</a></td>
+
+                        </tr>
+                        {% endfor %}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+{% endblock%}

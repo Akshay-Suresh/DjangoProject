@@ -1,0 +1,18 @@
+{% extends 'admin/admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Add Food</h4>
+                    <p style="color:green" class="card-description">Fill the following fields</p>
+                    <form method="POST"  class="forms-sample">
+                        {% csrf_token %}
+                      {{form|crispy}}
+                      <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+{% endblock %}

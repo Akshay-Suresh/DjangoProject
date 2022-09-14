@@ -1,0 +1,35 @@
+{% extends 'admin/admin.html' %}
+{% block content %}
+
+<div class="col-lg-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+<!--                    <h4 class="card-title">Basic Table</h4>-->
+<!--                    <p class="card-description"> Add class <code>.table</code>-->
+<!--                    </p>-->
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Reg. No.</th><th>Room No.</th><th>Roommates</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for i in afob %}
+                            <tr>
+                                <td>{{i.stu}}</td><td>{{i.roomno}}</td><td>{{i.roommates}}</td>
+<!--                                <td>-->
+<!--                                    <form action="{% url 'Deletefood' i.id %}" method="POST">-->
+<!--                                        {% csrf_token %}-->
+<!--                                        <button type="submit" class="btn btn-danger">Delete</button>-->
+<!--                                    </form>-->
+<!--            </td>-->
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+                  </div>
+                </div>
+              </div>
+
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'student/student.html' %}
+{% block content %}
+
+<div class="col-lg-20 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <u><h2  style="text-align:center" class="card-title">Attendance Details</h2></u>
+          <table border="2px" cellpadding="10px" width="1100px">
+            <theader>
+              <tr>
+                <th class="mb-2 text-dark font-weight-bold">Reg. No.</th>
+                <th class="mb-2 text-dark font-weight-bold">Date</th>
+                <th class="mb-2 text-dark font-weight-bold">Time</th>
+                <th class="mb-2 text-dark font-weight-bold">Attendance Status</th>
+              </tr>
+            </theader><br><br>
+            <tbody>
+              {% for i in sat %}
+              <tr>
+                <td class="mb-2 text-dark font-weight-normal">{{i.st.reg}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.date}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.time}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.attend}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
