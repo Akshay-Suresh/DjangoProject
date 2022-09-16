@@ -1,7 +1,12 @@
 {% extends 'admin/admin.html' %}
 {% block content %}
-
-<div class="col-lg-6 grid-margin stretch-card">
+<form method="get" class="form-inline " style="float:right;">
+    <div class="md-form my-0">
+        {{filter.form}}
+        <button class="btn btn-primary mr-2" type="submit">Search</button>
+    </div>
+</form>
+            <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
 <!--                    <h4 class="card-title">Basic Table</h4>-->
@@ -14,7 +19,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for i in afob %}
+                            {% for i in retrieve %}
                             <tr>
                                 <td>{{i.stu}}</td><td>{{i.roomno}}</td><td>{{i.roommates}}</td>
 <!--                                <td>-->
@@ -23,13 +28,13 @@
 <!--                                        <button type="submit" class="btn btn-danger">Delete</button>-->
 <!--                                    </form>-->
 <!--            </td>-->
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                   </div>
                 </div>
-              </div>
+            </div>
 
 
 {% endblock %}

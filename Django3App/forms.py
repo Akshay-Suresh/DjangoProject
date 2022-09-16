@@ -1,5 +1,7 @@
+import django_filters
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
+from django_filters import CharFilter
 
 from Django3App.models import LoginView, Student, Parent, Food, RoomDetails, AlotRoom
 
@@ -42,5 +44,15 @@ class AlotRoomForm(forms.ModelForm):
     class Meta:
         model = AlotRoom
         fields = '__all__'
+
+
+class AlotRoomFilter(django_filters.FilterSet):
+    stu = CharFilter(field_name='stu', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
+        'placeholder': 'Search Name', 'class': 'form-control'}))
+
+    class Meta:
+        model = AlotRoom
+        fields = ('stu',)
+
 
 

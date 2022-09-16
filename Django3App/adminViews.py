@@ -3,7 +3,7 @@ import datetime
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-from Django3App.forms import FoodForm, RoomForm, AlotRoomForm
+from Django3App.forms import FoodForm, RoomForm, AlotRoomForm, AlotRoomFilter
 from Django3App.models import Student, Parent, Food, RoomDetails, LoginView, Attendance, AlotRoom
 
 
@@ -135,8 +135,10 @@ def AlotRoom_View(request):
 
 
 def ViewAlotRoom(request):
-    afob = AlotRoom.objects.all()
-    return render(request, 'admin/ViewAlotRoom.html', {'afob':afob})
+    retrieve = AlotRoom.objects.all()
+    f = AlotRoomFilter(request.GET, queryset=retrieve)
+    # retrieve = f.qs
+    return render(request, 'admin/ViewAlotRoom.html', {'retrieve':retrieve, 'filter':f})
 
 
 
