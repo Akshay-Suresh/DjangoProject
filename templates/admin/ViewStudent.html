@@ -1,6 +1,12 @@
 {% extends 'admin/admin.html' %}
 {% block content %}
 
+<form method="get" class="form-inline " style="float:right;">
+        <div class="md-form my-0">
+          {{StudentFilter.form}}
+          <button class="btn btn-primary mr-2" type="submit">Search</button>
+        </div>
+</form>
 
 <div class="col-lg-20 grid-margin stretch-card">
   <div class="card">

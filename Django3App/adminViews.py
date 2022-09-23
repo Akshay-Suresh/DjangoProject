@@ -3,7 +3,8 @@ import datetime
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-from Django3App.forms import FoodForm, RoomForm, AlotRoomForm, AlotRoomFilter
+from Django3App.filters import AlotRoomFilter, StudentFilter
+from Django3App.forms import FoodForm, RoomForm, AlotRoomForm
 from Django3App.models import Student, Parent, Food, RoomDetails, LoginView, Attendance, AlotRoom
 
 
@@ -13,7 +14,13 @@ def admin_view(request):
 
 def View_Student(request):
     sob = Student.objects.all()
-    return render(request, 'admin/ViewStudent.html', {'sob': sob})
+    studentFilter = StudentFilter(request.GET, queryset=sob)
+    sob = studentFilter.qs
+    context = {
+        'sob':sob,
+        'StudentFilter':studentFilter,
+    }
+    return render(request, 'admin/ViewStudent.html', context)
 
 
 def Delete_Student(request, id):
@@ -136,9 +143,28 @@ def AlotRoom_View(request):
 
 def ViewAlotRoom(request):
     retrieve = AlotRoom.objects.all()
-    f = AlotRoomFilter(request.GET, queryset=retrieve)
-    # retrieve = f.qs
-    return render(request, 'admin/ViewAlotRoom.html', {'retrieve':retrieve, 'filter':f})
+    alotroomFilter = AlotRoomFilter(request.GET, queryset=retrieve)
+    retrieve = alotroomFilter.qs
+    context = {
+        'retrieve': retrieve,
+        'alotroomFilter': alotroomFilter,
+    }
+    return render(request, 'admin/ViewAlotRoom.html', context)
+
+
+
+
+
+# def status(request):
+#
+#     p = Request.objects.all()
+#     statusFilter = StatusFilter(request.GET, queryset=p)
+#     p = statusFilter.qs
+#     context = {
+#         'data': p,
+#         'statusFilter': statusFilter,
+#     }
+#     return render(request, 'customer/statt.html', context)
 
 
 

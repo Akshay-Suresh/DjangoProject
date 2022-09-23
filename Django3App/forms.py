@@ -46,13 +46,6 @@ class AlotRoomForm(forms.ModelForm):
         fields = '__all__'
 
 
-class AlotRoomFilter(django_filters.FilterSet):
-    stu = CharFilter(field_name='stu', label="", lookup_expr='icontains', widget=forms.TextInput(attrs={
-        'placeholder': 'Search Name', 'class': 'form-control'}))
-
-    class Meta:
-        model = AlotRoom
-        fields = ('stu',)
 
 
 
