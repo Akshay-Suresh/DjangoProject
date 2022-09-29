@@ -134,7 +134,7 @@ def day_attendance(request, date):
 def AlotRoom_View(request):
     aform = AlotRoomForm()
     if request.method == 'POST':
-        aform = AlotRoomForm(request.POST)
+        aform = AlotRoomForm(request.POST, request.FILES)
         if aform.is_valid():
             aform.save()
             return redirect('Alot_Room')

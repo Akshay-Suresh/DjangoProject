@@ -64,6 +64,7 @@ class AlotRoom(models.Model):
     stu = models.ForeignKey(Student, on_delete=models.CASCADE, related_name='alotroom')
     roomno = models.CharField(max_length=50)
     roommates = models.CharField(max_length=150)
+    img = models.FileField(upload_to="documents/")
 
 
 

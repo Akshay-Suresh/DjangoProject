@@ -15,13 +15,13 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Reg. No.</th><th>Room No.</th><th>Roommates</th>
+                                <th>Reg. No.</th><th>Room No.</th><th>Roommates</th><th>Images</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for i in retrieve %}
                             <tr>
-                                <td>{{i.stu}}</td><td>{{i.roomno}}</td><td>{{i.roommates}}</td>
+                                <td>{{i.stu}}</td><td>{{i.roomno}}</td><td>{{i.roommates}}</td><td><img class="img-responsive" style="width: 100%; float: left; margin-right: 10px;" src="{{i.img.url}}"></td>
 <!--                                <td>-->
 <!--                                    <form action="{% url 'Deletefood' i.id %}" method="POST">-->
 <!--                                        {% csrf_token %}-->
