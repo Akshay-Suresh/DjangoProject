@@ -11,8 +11,6 @@ def parent_view(request):
 def Parent_Reg_View(request):
     form_l = LoginForm()
     form_q = ParentForm()
-    form_p = Student.objects.filter(category='Hostlers')
-    print(form_p)
     if request.method == 'POST':
         form_l = LoginForm(request.POST)
         form_q = ParentForm(request.POST)
@@ -20,11 +18,34 @@ def Parent_Reg_View(request):
             user = form_l.save(commit=False)
             user.is_Parent = True
             user.save()
-            user1 = form_p.save(commit=False)
+            user1 = form_q.save(commit=False)
             user1.user = user
             user1.save()
             return redirect('Login_View')
-    return render(request, 'parent/regParent.html', {'form_l':form_l, 'form_q':form_q, 'form_p':form_p})
+    return render(request, 'parent/regParent.html', {'form_l':form_l, 'form_q':form_q})
+
+# def ParentReg(request):
+#     return render(request, 'parent/RegParent.html')
+
+
+# def RegParentView(request):
+#     if request.method == 'POST':
+#         regParent = RegParentModel()
+#         regParent.name1 = request.POST.get('name1')
+#         regParent.email1 = request.POST.get('email1')
+#         regParent.phone1 = request.POST.get('phone1')
+#         regParent.relation1 = request.POST.get('relation1')
+#
+#         regParent.save()
+#
+#         return redirect('RegParent')
+#     else:
+#         return redirect('RegParent')
+
+
+# def RegParent(request):
+#     data = RegParentModel.objects.all()
+#     return render(request, 'parent/ParentDetails.html', {'data' : data})
 
 
 def StudentAttendanceView_Parent(request):

@@ -36,5 +36,8 @@ urlpatterns = [
     #ParentViews
     path('Parent_Reg_View', ParentViews.Parent_Reg_View, name='Parent_Reg_View'),
     path('parent_view', ParentViews.parent_view, name='parent_view'),
-    path('StudentAttendanceView_Parent', ParentViews.StudentAttendanceView_Parent, name='StudentAttendanceView_Parent')
+    path('StudentAttendanceView_Parent', ParentViews.StudentAttendanceView_Parent, name='StudentAttendanceView_Parent'),
+    # path('RegParentView', ParentViews.RegParentView, name='RegParentView'),
+    # path('RegParent', ParentViews.RegParent, name='RegParent'),
+    # path('ParentReg', ParentViews.ParentReg, name='ParentReg')
 ]

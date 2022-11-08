@@ -19,13 +19,13 @@ class LoginForm(UserCreationForm):
 class StudentForm(forms.ModelForm):
     class Meta:
         model = Student
-        fields = ('name', 'reg', 'category', 'email', 'ph')
+        fields = ('name', 'reg', 'email', 'ph')
 
 
 class ParentForm(forms.ModelForm):
     class Meta:
         model = Parent
-        fields = ('student',)
+        fields = '__all__'
 
 
 class FoodForm(forms.ModelForm):

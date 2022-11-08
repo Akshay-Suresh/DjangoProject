@@ -13,8 +13,6 @@ class Student(models.Model):
     user = models.OneToOneField(LoginView, on_delete=models.CASCADE, related_name='student')
     name = models.CharField(max_length=50)
     reg = models.CharField(max_length=50)
-    ch = (('Hostlers', 'Hostlers'), ('Day Scholars', 'Day Scholars'))
-    category = models.CharField(max_length=50, choices=ch, default='Hostlers', null=True)
     email = models.EmailField()
     ph = models.CharField(max_length=50)
 
@@ -33,6 +31,13 @@ class Parent(models.Model):
 
     # def __str__(self):
     #     return "%s" % self.name
+
+
+# class RegParentModel(models.Model):
+#     name1 = models.CharField(max_length=30)
+#     email1 = models.EmailField()
+#     phone1 = models.CharField(max_length=10)
+#     relation1 = models.CharField(max_length=10)
 
 
 class Food(models.Model):

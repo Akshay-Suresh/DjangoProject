@@ -1,0 +1,32 @@
+{% extends 'parent/Parent.html' %}
+{% block content %}
+
+<div class="col-lg-20 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <u><h2  style="text-align:center" class="card-title">Parent Details</h2></u>
+          <table border="2px" cellpadding="10px" width="1100px">
+            <theader>
+              <tr>
+                <th class="mb-2 text-dark font-weight-bold">Name</th>
+                <th class="mb-2 text-dark font-weight-bold">Email</th>
+                <th class="mb-2 text-dark font-weight-bold">Phone</th>
+                <th class="mb-2 text-dark font-weight-bold">Relation</th>
+              </tr>
+            </theader><br><br>
+            <tbody>
+              {% for i in data %}
+              <tr>
+                <td class="mb-2 text-dark font-weight-normal">{{i.name}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.email}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.phone}}</td>
+                <td class="mb-2 text-dark font-weight-normal">{{i.relation}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
